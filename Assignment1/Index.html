@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html ng-app="todoapp">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="Content/bootstrap-theme.css" />
+</head>
+<body>
+    
+    <div class="container">
+        <div class="page-header">
+            To-Do Task Listing
+        </div>
+
+        <div class="panel-body">
+            <div class="row">
+                <div ng-controller="todoController as ctrl">
+                    <div class="col-lg-12">
+                        <div class="input-group input-group-lg">
+                            <input type="text" ng-model="task" class="form-control input-lg" id="search-church" placeholder="Enter the task description...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default btn-lg" type="submit" ng-click="ctrl.addTask(task)">Add Task</button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </div><!-- /.col-lg-6 -->
+                    <br/>
+                    <br />
+                    <br />
+                    <div>
+                        <table class="table table-striped">
+                            <th>
+                                Task ID
+                            </th>
+                            <th>
+                                Task Description
+                            </th>
+                            <tr  ng-repeat="tks in ctrl.Tasks track by $index">
+                                <td>
+                                    {{$index + 1 }} 
+                                </td>
+                                <td>
+                                    {{tks}}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="panel-footer">
+            &copy; 2016
+        </div>
+
+    </div>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/app/todoapp.js"></script>
+    
+</body>
+</html>

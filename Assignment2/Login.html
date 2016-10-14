@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html ng-app="todoapp">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="Content/bootstrap-theme.css" />
+</head>
+<body>
+    
+    <div class="container">
+        <div class="page-header page-header">
+            To-Do Task Application
+        </div>
+
+        <div class="panel-body">
+            <div class="row">
+                <div ng-controller="loginController as ctrl">
+                    <div class="col-lg-offset-3 col-lg-6">                    
+					<form ng-submit="ctrl.submit()" name="loginForm">
+						<div class="form-group">
+						<label for="userEmailID">Email:</label>
+						<input id="userEmailID" placeholder="Email" type="text" name="userEmailID" class="form-control" ng-model="ctrl.user.emailID" required ng-pattern="emailRegEx">
+						</div>
+						<div class="form-group">
+						<label for="userPassword">Password:</label>
+						<input id="userPassword" placeholder="Password" name="userPassword" type="password" class="form-control" ng-model="ctrl.user.password">
+						</div>
+						<input type="submit" class="btn btn-default" value="Login" ng-disabled="loginForm.$invalid">
+						<input type="button" class="btn btn-default" value="Register">		
+					</form>      
+												
+                    </div><!-- /.col-lg-offset-3 col-lg-6 -->                                 
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-footer">
+            &copy; 2016
+        </div>
+
+    </div>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/app/todoapp.js"></script>
+    
+</body>
+</html>

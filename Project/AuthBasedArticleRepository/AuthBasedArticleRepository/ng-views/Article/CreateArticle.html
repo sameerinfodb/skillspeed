@@ -1,0 +1,31 @@
+﻿
+<form ng-submit="ctrl.submit()" name="articleForm" novalidate>
+    <div class="alert alert-warning" ng-if="!articleForm.$pristine && !articleForm.$valid">      
+        <div ng-messages="articleForm.title.$error" ng-show="articleForm.title.$touched">
+            <div ng-message="required">Title is required</div>
+            <div ng-message="minlength">Title should be atleast 5 characters long</div>
+            <div ng-message="maxlength">Title should be less than 50 characters long</div>
+        </div>
+        <div ng-messages="articleForm.content.$error" ng-show="articleForm.content.$touched">
+            <div ng-message="required">content is required</div>
+            <div ng-message="minlength">content should be atleast 50 characters long</div>          
+        </div>
+      </div>
+    <div class="">
+
+        <div class="form-group" ng-class="{'has-error':articleForm.title.$touched && articleForm.title.$invalid}">
+            <label for="title">Article Title:</label>
+            <input id="title" placeholder="Enter Article Title" type="text" name="title" class="form-control" ng-model="ctrl.article.title" ng-minlength="5" ng-maxlength="50" required>          
+        </div>
+        <div class="form-group" ng-class="{'has-error':articleForm.content.$touched && articleForm.content.$invalid}">
+            <label for="content">Article Content:</label>
+            <textarea id="content" ui-tinymce="tinymceOptions" 
+                      placeholder="Enter the Article Content" type="text" name="content"
+                       class="form-control" ng-model="ctrl.article.content" ></textarea>
+
+        </div>        
+    </div>
+
+    <input type="submit" class="btn btn-default" value="Submit" ng-disabled="articleForm.$invalid">
+    <input type="button" class="btn btn-default" value="Cancel" ng-click="ctrl.redirectTo('/articles')">
+</form>

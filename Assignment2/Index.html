@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html ng-app="todoapp">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="Content/bootstrap-theme.css" />
+</head>
+<body ng-controller="mainController as ctrl">
+    
+    <div class="container">
+        <div class="page-header page-header">
+            <span>To-Do Task Application</span>
+			<input type="button" value="Logout" ng-hide="!loginStatus" ng-click="ctrl.logOut()">
+        </div>
+
+        <div class="panel-body">
+            <div class="row">
+                <div>
+                    <div class="col-lg-offset-3 col-lg-6">                    
+					  <div ng-view></div>												
+                    </div><!-- /.col-lg-offset-3 col-lg-6 -->                                 
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-footer">
+            &copy; 2016
+        </div>
+
+    </div>
+    <script src="scripts/angular.js"></script>
+	<script src="scripts/angular-route.js"></script>
+	<script src="scripts/angular-messages.js"></script>
+	<script src="scripts/lodash.min.js"></script>
+    <script src="scripts/app/todoapp.js"></script>
+    
+</body>
+</html>

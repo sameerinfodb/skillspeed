@@ -1,0 +1,26 @@
+<form ng-submit="ctrl.submit()" name="confirmForm">
+
+		<div class="">
+		<div class="form-group">
+			<label>First Name:</label>
+			<label>{{ctrl.user.firstName}}</label>
+		</div>
+		<div class="form-group">
+			<label for="userLastName">Last Name:</label>
+			<label>{{ctrl.user.lastName}}</label>		
+		</div>
+		<div class="form-group">
+			<label for="userEmailID">Email:</label>
+			<label>{{ctrl.user.emailID}}</label>		
+
+		</div>
+		<div class="form-group">
+			<label for="userPhoneNo">Phone:</label>
+			<label>{{ctrl.user.phoneNo}}</label>			
+		</div>
+		
+		</div>
+		
+		<input type="button" class="btn btn-default" value="Confirm" ng-click="ctrl.saveUser()">
+		<input type="button" class="btn btn-default" value="Cancel" ng-click="ctrl.redirectTo('/Register')">		
+</form>    

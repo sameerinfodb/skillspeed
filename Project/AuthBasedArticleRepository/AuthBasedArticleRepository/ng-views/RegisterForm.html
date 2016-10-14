@@ -1,0 +1,63 @@
+<form ng-submit="ctrl.submit()" name="registerForm" novalidate>			  
+		<div class="alert alert-warning" ng-if="!registerForm.$pristine && !registerForm.$valid">
+			{{registerForm.confirmPassword.$error}}
+			<div ng-messages="registerForm.userFirstName.$error" ng-show="registerForm.userFirstName.$touched">
+					<div ng-message="required">First Name is required</div>
+					<div ng-message="minlength">First Name should be atleast 5 characters long</div>
+					<div ng-message="maxlength">First Name less than 50 characters long</div>
+			</div> 	
+			<div ng-messages="registerForm.userLastName.$error" ng-show="registerForm.userLastName.$touched">
+					<div ng-message="required">Last Name is required</div>
+					<div ng-message="minlength">Last Name should be atleast 5 characters long</div>
+					<div ng-message="maxlength">Last Name less than 50 characters long</div>
+			</div>
+			<div ng-messages="registerForm.userEmailID.$error" ng-show="registerForm.userEmailID.$touched">
+				<div ng-message="pattern">Email is invalid</div>
+				<div ng-message="required">Email is required</div>				
+			</div> 
+			<div ng-messages="registerForm.userPhoneNo.$error" ng-show="registerForm.userPhoneNo.$touched">
+					<div ng-message="required">Phone Number is required</div>
+					<div ng-message="pattern">Phone Number is invalid</div>
+			</div> 	
+			<div ng-messages="registerForm.userPassword.$error" ng-show="registerForm.userPassword.$touched">
+					<div ng-message="required">Password is required</div>		
+			</div> 	
+			<div ng-messages="registerForm.userConfirmPassword.$error" ng-show="registerForm.userConfirmPassword.$touched">
+					<div ng-message="compareTo">Confirm Password not matching</div>	
+					<div ng-message="required">Password is required</div>							
+			</div> 				
+		</div>
+		<div class="">
+		
+		<div class="form-group" ng-class="{'has-error':registerForm.userFirstName.$touched && registerForm.userFirstName.$invalid}">
+			<label for="userFirstName">First Name:</label>
+			<input id="userFirstName" placeholder="Enter First name" type="text" name="userFirstName" class="form-control" ng-model="ctrl.user.firstName" ng-minlength="5" ng-maxlength="50" required>
+		</div>
+		<div class="form-group" ng-class="{'has-error':registerForm.userLastName.$touched && registerForm.userLastName.$invalid}">
+			<label for="userLastName">Last Name:</label>
+			<input id="userLastName" placeholder="Enter Last name" type="text" name="userLastName" class="form-control" ng-model="ctrl.user.lastName" ng-minlength="5" ng-maxlength="50">
+		</div>
+		<div class="form-group" ng-class="{'has-error':registerForm.userEmailID.$touched && registerForm.userEmailID.$invalid}">
+			<label for="userEmailID">Email:</label>
+			<input id="userEmailID" placeholder="your@email.com" type="email" name="userEmailID" class="form-control" ng-model="ctrl.user.emailID" ng-required="!ctrl.user.phoneNo" ng-pattern="emailRegEx">
+		</div>
+		<div class="form-group" ng-class="{'has-error':registerForm.userPhoneNo.$touched && registerForm.userPhoneNo.$invalid}">
+			<label for="userPhoneNo">Phone:</label>
+			<input id="userPhoneNo" placeholder="xxxx-xxxxxxx or xxxxx-xxxxxx"  type="text" name="userPhoneNo" class="form-control" ng-model="ctrl.user.phoneNo" ng-required="!ctrl.user.emailID" ng-pattern="phoneNoRegEx">
+		</div>
+		<div class="form-group" ng-class="{'has-error':registerForm.userPassword.$touched && registerForm.userPassword.$invalid}">
+			<label for="userPassword">Password:</label>
+			<input id="userPassword" placeholder="Password" type="password" name="userPassword" class="form-control" ng-model="ctrl.user.password" required>
+		</div>
+		<div class="form-group" ng-class="{'has-error':registerForm.userConfirmPassword.$touched && registerForm.userConfirmPassword.$invalid}">
+			<label for="userConfirmPassword">Confirm Password:</label>
+			<input id="userConfirmPassword" placeholder="Confirm Password" type="password" name="userConfirmPassword" class="form-control" ng-model="ctrl.user.confirmPassword" required compare-to="ctrl.user.password">
+		</div>
+		</div>
+		
+		<input type="submit" class="btn btn-default" value="Submit" ng-disabled="registerForm.$invalid">
+		<input type="button" class="btn btn-default" value="Cancel" ng-click="ctrl.redirectTo('/')">	
+
+
+</form>    
+	

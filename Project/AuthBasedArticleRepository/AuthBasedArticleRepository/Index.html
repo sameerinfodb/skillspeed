@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html ng-app="ArticleRepoApp">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="Content/bootstrap-theme.css" />
+    <link rel="stylesheet" href="Content/ngDialog.css"/>
+    <link rel="stylesheet" href="Content/ngDialog-theme-default.css"/>
+
+</head>
+<body ng-controller="MainController as ctrl">
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Article Repository</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a ng-href="{{'#/articles/create'}}" ng-hide="!loginStatus">Create Article<span class="sr-only">(current)</span></a></li>
+                </ul>
+                <!--<form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>-->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" ng-hide="!loginStatus" ng-click="ctrl.logOut()">Logout</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+      <div class="container">
+        <!--<div class="page-header page-header">
+            <span class="page-header">Article Repository</span>
+            <input type="button" class="pull-right" value="Logout" ng-hide="!loginStatus" ng-click="ctrl.logOut()">
+        </div>-->
+        <div class="panel-body">
+             <div ng-view></div>           
+        </div>
+    </div>
+    <div class="panel-footer">
+        &copy; 2016
+    </div>
+    <script src="scripts/jquery-1.9.1.js"></script>
+    <script src="scripts/bootstrap.js"></script>
+    <script src="scripts/tinymce/tinymce.js"></script>
+    <!-- Angular -->
+    <script src="scripts/angular.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
+    <script src="scripts/angular-sanitize.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    <script src="scripts/angular-messages.js"></script>
+    <script src="scripts/angular-messages.js"></script>
+    <script src="scripts/ngDialog.js"></script>
+
+    <script src="scripts/lodash.min.js"></script>
+ 
+    <script src="scripts/angular-ui-tinymce/src/tinymce.js"></script>
+    <script src="ng-scripts/app.js"></script>
+    <!--Loading all the services-->
+    <script src="ng-scripts/Common/services/profile-service.js"></script>
+  
+    <script src="ng-scripts/Login/services/authentication-service.js"></script>
+    <script src="ng-scripts/Registration/services/registration-service.js"></script>
+    <script src="ng-scripts/Article/services/article-persistence-service.js"></script>
+    <!--Loading all the directives-->
+    <script src="ng-scripts/Registration/directives/compare-to-directive.js"></script>
+    <!--Loading all the controller-->
+    <script src="ng-scripts/Login/controller/login-controller.js"></script>        
+    <script src="ng-scripts/Registration/controller/registration-controller.js"></script>
+    <script src="ng-scripts/Registration/controller/confirmation-controller.js"></script>
+    <script src="ng-scripts/Article/controller/article-controller.js"></script>
+    <script src="ng-scripts/Article/controller/edit-article-controller.js"></script>
+    <script src="ng-scripts/Article/controller/create-article-controller.js"></script>
+    
+    <script src="ng-scripts/todoapp/controllers/todo-controller.js"></script>
+    <script src="ng-scripts/Main/controllers/main-controller.js"></script>
+
+</body>
+</html>

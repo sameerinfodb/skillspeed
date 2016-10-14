@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" href="Content/bootstrap.css" />   
+</head>
+<body ng-app="filterApp" ng-controller="MainController as ctrl">
+
+    <div class="container">
+        <br />
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <label for="filterByProperties">Filter By Property Type:</label>
+                        <input type="text" name="filterByProperties" ng-model="filterByType" />
+                    </div>
+                    <div class="panel-body">
+                        <div ng-repeat="product in products.properties">
+
+                            {{ product | filterByPropType: { type: filterByType} }}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+              
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <label for="filterByDescription">Filter By Description:</label>
+                        <input type="text" name="filterByDescription" ng-model="filterByDescription" />
+                    </div>
+                    <div class="panel-body">
+                        <div ng-repeat="product in products.properties">
+
+                            {{ product | filterByPropDescription: { description: filterByDescription} }}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <label for="filterByRequiredField">Filter By Mandatory Fields:</label>
+                        <input type="text" name="filterByRequiredField" ng-model="filterByReq" />
+                    </div>
+                    <div class="panel-body">
+                        <div ng-repeat="product in products.properties">
+
+                            {{ product | filterByReq: { required: filterByReq} }}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                    <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <label for="filterByRequiredField">Filter By Field Name:</label>
+                        <input type="text" name="filterByFieldName" ng-model="filterByName" />
+                    </div>
+                    <div class="panel-body">
+                        <div ng-repeat="product in products.properties">
+
+                            {{ product | filterByName: { name: filterByName} }}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/app/app.js"></script>    
+</body>
+</html>

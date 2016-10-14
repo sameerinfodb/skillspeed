@@ -1,0 +1,33 @@
+<form ng-submit="ctrl.submit()" name="loginForm" novalidate>
+	<div class="alert alert-warning" ng-if="!loginForm.$pristine && !loginForm.$valid">
+		<div ng-messages="loginForm.userEmailID.$error" ng-show="loginForm.userEmailID.$touched">
+				<div ng-message="pattern">Email is invalid</div>
+				<div ng-message="required">Email is required</div>
+				
+		</div> 	
+		<div ng-messages="loginForm.userPhoneNo.$error" ng-show="loginForm.userPhoneNo.$touched">
+				<div ng-message="required">Phone Number is required</div>
+				<div ng-message="pattern">Phone Number is invalid</div>
+		</div> 	
+		<div ng-messages="loginForm.userPassword.$error" ng-show="loginForm.userPassword.$touched">
+				<div ng-message="required">Password is required</div>		
+		</div> 		
+	</div>
+	<div class="form-group">
+		<label for="userEmailID">Email:</label>
+		<input id="userEmailID" placeholder="your@email.com" type="text" name="userEmailID" class="form-control" ng-model="ctrl.user.emailID"  ng-required="!ctrl.user.phoneNo" ng-pattern="emailRegEx">
+	</div>
+	<div class="form-group">
+		<label for="userPhoneNo">Phone Number:</label>
+		<input id="userPhoneNo" placeholder="xxxx-xxxxxxx or xxxxx-xxxxxx" type="text" name="userPhoneNo" class="form-control" ng-model="ctrl.user.phoneNo" ng-required="!ctrl.user.emailID" ng-pattern="phoneNoRegEx">
+	</div>
+	
+	<div class="form-group">
+		<label for="userPassword">Password:</label>
+		<input id="userPassword" placeholder="Password" name="userPassword" type="password" class="form-control" ng-model="ctrl.user.password"  required>
+	</div>
+		<input type="submit" class="btn btn-default" value="Login" ng-disabled="loginForm.$invalid">
+		<input type="button" class="btn btn-default" value="Register" ng-click="ctrl.redirectTo('/Register')">		
+</form>    
+
+
