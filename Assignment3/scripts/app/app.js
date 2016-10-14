@@ -88,7 +88,7 @@ app.filter("filterByName", function () {
 
         if (input.hasOwnProperty("name")) {
             if (option["name"] !== undefined && option["name"] !== "") {
-                if (input.required.toString() === option["name"]) {
+                if (input.name.toString() === option["name"]) {
                     result = result + input.name;
                     result = result + ", ";
                 }
