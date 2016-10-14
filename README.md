@@ -25,7 +25,9 @@ Create 4 different filters for different criteria for the sample JSON data(i.e. 
 Project details
 ===============
 
-User can use Article Repository application to manage his private articles and this article are stored on google cloud via. firebase and can be access from any devices. Article Repository Application has been development consider hybrid app model and Front end has been designed considering Responsive web design. 
+User can use Article Repository application to manage his private articles, these articles will be stored on google cloud via. firebase and can be accessed from any device.
+
+Article Repository Application has been developed considering hybrid app model and Front end has been designed considering Responsive web design. 
 
 Following are the functionality that has been implemented in this project.
 
