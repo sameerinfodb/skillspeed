@@ -2,11 +2,11 @@
     'use strict';
     var app, stripHtmlTags;
 
-    app = angular.module('dashboard');
+    app = angular.module('ArticleRepoApp');
 
-    stripHtmlTags = v(function () {
+    stripHtmlTags = function (v) {
         return String(v).replace(/<[^>]+>/gm, '');
-    });
+    };
 
     app.directive('plainTextMaxLength', function ($filter) {
         return {
