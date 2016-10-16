@@ -27,12 +27,15 @@
         }
         ctrl.edit = function (article) {
             $location.url("/articles");
-            ngDialog.open({
+            var dialog= ngDialog.open({
                 template: 'ng-views/Article/UpdateArticle.html',
                 className: 'ngdialog-theme-default',
                 data:article,
                 controller: 'EditArticleController',
                 controllerAs:'ctrl'
+            });
+            dialog.closePromise.then(function (data) {
+                $location.url("/articles");
             });
 
             ctrl.redirectTo = function (url) {
